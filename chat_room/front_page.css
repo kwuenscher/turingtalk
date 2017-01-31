@@ -1,0 +1,74 @@
+body {
+	background-color: rgba(102, 179, 135, 1);
+	font-family: 'Inconsolata', monospace;
+	color: white;
+	margin:0;
+	text-align: center;
+	margin-top: 50px;
+}
+
+h1 {
+	display: block;
+	text-align: center;
+	font-size: 5em;
+}
+
+div .button {
+	border: 1px solid white;
+	padding: 1px;
+	margin-top: 50px;
+	
+}
+div .button:hover {
+	background-color: white;
+	color: black;
+}
+
+h2 {
+	text-align: center;
+}
+
+img {
+	
+}
+a.animated-button.thar-three {
+	font-size: 3em;
+	color: #fff;
+	cursor: pointer;
+	display: block;
+	position: relative;
+	border: 2px solid rgba(45, 116, 115, 1);
+	transition: all 0.4s cubic-bezier(0.42, 0, 0.58, 1);
+0s;
+}
+a.animated-button.thar-three:hover {
+	color: white !important;
+	background-color: transparent;
+	text-shadow: nthree;
+}
+a.animated-button.thar-three:hover:before {
+	left: 0%;
+	right: auto;
+	width: 100%;
+}
+a.animated-button.thar-three:before {
+	display: block;
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	height: 100%;
+	width: 0px;
+	z-index: -1;
+	content: '';
+	color: #000 !important;
+	background: rgba(45, 116, 115, 1);
+	transition: all 0.4s cubic-bezier(0.42, 0, 0.58, 1);
+0s;
+}
+
+@media only screen and (max-width: 800px) {
+	a.animated-button.thar-three {
+		font-size: 2em;
+	}
+
+}

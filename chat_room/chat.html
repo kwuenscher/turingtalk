@@ -1,0 +1,141 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Turing Talk</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="chat.css"/>
+
+    <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
+  </head>
+  <body>
+    <ul class="sidebar-nav" id="buttons">
+
+
+
+  </ul>
+
+  <div class="container">
+
+  <div class="row">
+
+
+
+		<div class="col-xs-2"></div>    
+
+		<div class="col-xs-8" id="chatwindow">
+
+    <ul class="row" id="messages">
+
+	<li></li>
+
+	</ul>
+
+	<div class="row space"></div>
+
+	<div class="row">
+
+		 <form class="col-xs-2" id="form" action="">
+
+	      <input class="col-xs-6 navbar-fixed-bottom" id="input" autocomplete="off" />
+
+	    </form>
+
+    </div>
+    <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+    <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+    <script>
+      var socket = io();
+      $('form').submit(function(){
+		$('html, body').scrollTop( $(document).height() - $(window).height() );
+		if ($('#input').val().length !== 0){
+		  socket.emit('chat message', $('#input').val());
+		}
+        $('#input').val('');
+		
+        return false;
+      });
+      socket.on('chat message', function(att){
+        var atBottom = false;
+		$(window).scroll(function() {
+			if($(window).scrollTop() + $(window).height() == $(document).height()) {
+				atBottom = true;
+			}
+		});
+		if (att[3]) {
+
+			$('#messages').append($('<li>').css({'background-color': att[1], 'font-weight': att[2]}).addClass("bubble").text(att[0]));
+
+		} else {
+
+			$('#messages').append($('<li>').css({'background-color': att[1], 'font-weight': att[2]}).addClass("bubble bubble-alt").text(att[0]));
+
+		}
+		if (atBottom){
+			$('html, body').scrollTop( $(document).height() - $(window).height());
+			
+		}
+      });
+	  socket.on('guesser', function(colourList){
+		for (colour of colourList){
+			$('#buttons').append($('<button/>').css({'background-color': colour}).addClass("round-button").click( function(val){return function(){socket.emit('voted', val);}}(colour)));
+		}
+	  });
+	  socket.on('out of game', function(msg){
+	    $('#messages').append($('<li>').addClass("status").text("You have been voted out, no messages may be sent"));
+	  });
+	  socket.on('been eliminated', function(){
+	    $('#messages').append($('<li>').addClass("status").text("You have fooled the guesser and been eliminated (Good job)"));
+	  });
+	  socket.on('eliminate', function(colour){
+	    $('#messages').append($('<li>').addClass("status").text("A player has been eliminated, but was not the bot"));
+	  });
+	  socket.on('bot selected', function(){
+	    $('#messages').append($('<li>').addClass("status").text("The bot was correctly identified"));
+	  });
+	  socket.on('inactive', function(){
+	    $('#messages').append($('<li>').addClass("status").text("The selected colour is no longer active in the game, select another"));
+	  });
+	   socket.on('colours_assigned', function(){
+
+	    $('#messages').append($('<li>').addClass("status").text("A colour has been assigned to each player."));
+
+	  });
+	  
+	  socket.on('you_are_guesser', function(){
+
+	    $('#messages').append($('<li>').addClass("status").text("You are the guesser."));
+
+	  });
+	  
+	  socket.on('you_are_not_guesser', function(){
+
+	    $('#messages').append($('<li>').addClass("status").text("You are not the guesser."));
+
+	  });
+
+	  socket.on('colours_notassigned', function(num){
+		if (num >1) {
+	      $('#messages').append($('<li>').addClass("status").text("Waiting for "+ num +" more players to join. Invite your friends by sharing the URL!"));
+		} else {
+		  $('#messages').append($('<li>').addClass("status").text("Waiting for 1 more player to join. Invite your friends by sharing the URL!"));
+		}
+
+	  });
+	  socket.on('end game', function(att){
+	    if (att[0] && att[1]){
+		  location.href = "you_win.html";
+		}
+		if (att[0] && !att[1]){
+		  location.href = "you_lose.html";
+		}
+		if (!att[0] && att[1]){
+		  location.href = "you_lose.html";
+		}
+		if (!att[0] && !att[1]){
+		  location.href = "bots_win.html";
+		}
+	  });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,57 @@
+body {
+	background-color: #91f9a3;
+	font-family: 'Inconsolata', monospace;
+	color: white;
+
+}
+
+h1 {
+	text-align: center;
+	font-size: 5em;
+	margin-bottom: 50px;
+}
+
+
+a.animated-button.thar-three {
+	font-size: 3em;
+	color: #fff;
+	cursor: pointer;
+	display: block;
+	position: relative;
+	border: 2px solid rgba(45, 116, 115, 1);
+	transition: all 0.4s cubic-bezier(0.42, 0, 0.58, 1);
+}
+a.animated-button.thar-three:hover {
+	color: white !important;
+	background-color: transparent;
+	text-shadow: nthree;
+}
+a.animated-button.thar-three:hover:before {
+	left: 0%;
+	right: auto;
+	width: 100%;
+}
+a.animated-button.thar-three:before {
+	display: block;
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	height: 100%;
+	width: 0px;
+	z-index: -1;
+	content: '';
+	color: #000 !important;
+	background: rgba(45, 116, 115, 1);
+	transition: all 0.4s cubic-bezier(0.42, 0, 0.58, 1);
+
+}
+
+@media only screen and (max-width: 800px) {
+	a.animated-button.thar-three {
+		font-size: 2em;
+	}
+	h1 {
+		font-size: 2em;
+	}
+
+}

@@ -1,0 +1,71 @@
+body {
+	font-style: helvetica;
+	color: white;
+	margin:0;
+	text-align: center;
+	margin-top: 50px;
+	  background: url("images/background.gif") no-repeat center center fixed; 
+	background-size: cover;
+	-webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+h1 {
+	top: -100px;
+	position: relative;
+	color: #ff0000;
+	font-size:100px;
+	/*padding-top: 50%;
+  	padding-bottom: 50%;*/
+}
+img {
+	position: relative;
+
+	display: block;
+	z-index: 100;
+}
+
+a.animated-button.thar-three {
+	font-size: 3em;
+	color: #fff;
+	cursor: pointer;
+	display: block;
+	position: relative;
+	border: 2px solid rgba(45, 116, 115, 1);
+	transition: all 0.4s cubic-bezier(0.42, 0, 0.58, 1);
+0s;
+}
+a.animated-button.thar-three:hover {
+	color: white !important;
+	background-color: transparent;
+	text-shadow: nthree;
+}
+a.animated-button.thar-three:hover:before {
+	left: 0%;
+	right: auto;
+	width: 100%;
+}
+a.animated-button.thar-three:before {
+	display: block;
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	height: 100%;
+	width: 0px;
+	z-index: -1;
+	content: '';
+	color: #000 !important;
+	background: rgba(45, 116, 115, 1);
+	transition: all 0.4s cubic-bezier(0.42, 0, 0.58, 1);
+0s;
+}
+
+h2 {
+	top: 1000px;
+	position: relative;
+	display: block;
+	font-size: 50px;
+	z-index: 100;
+}

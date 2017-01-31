@@ -1,0 +1,210 @@
+body {
+  background-color:#91f9a3;
+  color:white;
+  font-size:1em;
+  color:white;
+  font-family:'Inconsolata', monospace;
+
+}
+
+
+
+.bubble {
+  padding:5px;
+  float: left;
+  max-width: 60%;
+  position: relative;
+  clear: both;
+  background-color:#aca1ff;
+  margin-bottom:5px;
+  border-radius:10px;
+  -webkit-box-shadow: 0px 0px 54px -13px rgba(0,0,0,1);
+-moz-box-shadow: 0px 0px 54px -13px rgba(0,0,0,1);
+box-shadow: 0px 0px 54px -13px rgba(0,0,0,1);
+}
+
+.status {
+
+	padding:5px;
+
+  float: left;
+
+  width:100%;
+
+  background-color:#89da97;
+
+  position: relative;
+
+  clear: both;
+
+  margin-bottom:5px;
+
+
+
+}
+
+.bubble-alt {
+  float: right;
+   background-color: #ffcea1;
+  border-radius:10px;
+}
+
+li {
+  font-family:'Inconsolata', monospace;
+}
+
+
+#chatwindow {
+  float: right;
+  width: 90%;
+}
+
+#header {
+  display:block;
+  width:100%;
+  postion:fixed;
+  top:0;
+}
+
+
+#pane {
+
+  position: fixed;
+
+  top: 20%;
+
+}
+
+
+#buttons {
+
+  position: fixed;
+
+  left: 10%;
+
+}
+
+#vote {
+
+  margin-top:10px;
+
+  vertical-align: middle;
+
+  display:block;
+
+  width: 10px;
+
+}
+
+
+
+.round-button{
+
+  border-radius: 10px;
+
+  width: 50px;
+
+  height:50px;
+
+  margin-top:10px;
+
+  vertical-align: middle;
+
+  display:block;
+
+  line-height:80px;
+
+  border: 0px solid #00AA66;
+
+  box-shadow: 0 0 5px rgba(0,0,0,0.5);
+
+  font-size:20px;
+
+}
+
+.round-button:focus {
+
+  outline: none;
+
+}
+
+
+
+#input:focus {
+
+  outline: none;
+
+
+
+}
+
+
+
+ul {
+
+	list-style-type:none;
+  font-style:'Inconsolata', monospace;
+  font-size: 25px;
+
+}
+
+
+
+
+
+.space {
+
+  height: 100px;
+
+}
+
+#header {
+  position:fixed;
+  width: 19%;
+  height: 10vh;
+  background-image: url("https://pbs.twimg.com/profile_images/816061949658050560/nkpUAD04.jpg");
+}
+
+#form {
+  position:fixed;
+  left:20;
+  width:100%;
+  bottom:0;
+}
+
+
+
+#input {
+
+  float:left;
+
+  background-color: rgba(255,255,255,0.8);
+
+  margin:auto;
+
+  height:50px;
+
+  margin-bottom:10px;
+
+  font-family: 'Inconsolata', monospace;
+
+  font-size: 25px;
+
+  color:black;
+
+  border: 1px solid white
+
+}
+
+#send {
+  float:left;
+  display:block;
+  background-color:red;
+  margin:auto;
+  height:50px;
+  width:50px;
+  margin-left:10px;
+  margin-bottom:10px;
+  text-align:center;
+  color:black;
+}

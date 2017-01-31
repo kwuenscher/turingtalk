@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Turing Talk</title>
+	<link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link type="text/css" rel="stylesheet" href="front_page.css" ></link>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<div class="container">
+	<h1 class="row col-xs-12">Turing Talk</h1>
+		<div class="row"> 
+			<div class="col-xs-2"> </div>
+			<div class="col-xs-8"> <a class="btn btn-sm animated-button thar-three">Start the game</a> </div>
+			<div class="col-xs-2"> </div>
+		</div>
+
+	<div class="row">
+		<div class="col-xs-0 col-md-2"></div>
+
+		<h2 class="col-xs-12 col-md-3">Find the bot in the chat room while everyone else tries to be a bot.</h2>
+		<div class="col-xs-3 col-md-1"></div>
+		<img class="col-xs-6 col-md-3" src="images/turingCirkel.png">
+		<div class="col-xs-3 col-md-2"></div>
+	</div>
+
+</div>
+<script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+<script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+<script>
+	var socket = io();
+	$('a').click(function(){socket.emit('create room')});
+	socket.on('goto room', function(portNum){
+		console.log(portNum);
+		location.host = location.hostname + ':' + portNum;
+	});
+</script>
+</body>
+</html>
